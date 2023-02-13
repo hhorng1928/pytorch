@@ -1161,7 +1161,7 @@ ${legacy_class_hints}
 
 # Defined in torch/csrc/autograd/python_engine.cpp
 class _ImperativeEngine:
-    ...
+    queue_callback: Callable[[Callable[[], None]], None]
 
 # Defined in torch/csrc/autograd/python_variable.cpp
 class _TensorMeta(type):
