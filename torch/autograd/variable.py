@@ -1,4 +1,6 @@
 import torch
+from torch._C import _ImperativeEngine as ImperativeEngine
+
 
 __all__ = ["VariableMeta", "Variable"]
 
@@ -9,9 +11,4 @@ class VariableMeta(type):
 
 
 class Variable(torch._C._LegacyVariableBase, metaclass=VariableMeta):
-    pass
-
-
-from torch._C import _ImperativeEngine as ImperativeEngine
-
-Variable._execution_engine = ImperativeEngine()
+    _execution_engine = ImperativeEngine()
