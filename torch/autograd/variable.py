@@ -10,5 +10,5 @@ class VariableMeta(type):
         return isinstance(other, torch.Tensor)
 
 
-class Variable(torch._C._LegacyVariableBase, metaclass=VariableMeta):
+class Variable(torch._C._LegacyVariableBase, metaclass=VariableMeta):  # type: ignore[misc]
     _execution_engine = ImperativeEngine()

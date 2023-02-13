@@ -1198,7 +1198,7 @@ class TracedModule(ScriptModule):
 
 
 class TopLevelTracedModule(TracedModule):
-    forward: Callable[[...], Any] = _CachedForward()  # type: ignore[assignment]
+    forward: Callable[..., Any] = _CachedForward()  # type: ignore[assignment]
 
     def _reconstruct(self, cpp_module):
         """

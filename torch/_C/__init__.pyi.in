@@ -1161,9 +1161,9 @@ ${legacy_class_hints}
 
 # Defined in torch/csrc/autograd/python_engine.cpp
 class _ImperativeEngine:
-    queue_callback: Callable[[Callable[[], None]], None]
-    run_backward: Callable[..., Tuple[Tensor, ...]]
-    is_checkpoint_valid: Callable[[], bool]
+    def queue_callback(self, callback: Callable[[], None]) -> None: ...
+    run_backward(self, *args: Any, **kwargs: Any) -> Tuple[Tensor, ...]: ...
+    is_checkpoint_valid(self): _bool: ...
 
 # Defined in torch/csrc/autograd/python_variable.cpp
 class _TensorMeta(type):
